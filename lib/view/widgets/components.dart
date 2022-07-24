@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,8 +15,10 @@ Widget defaultTextField({
   Function(String)? onSubmit,
   bool isPassword = false,
   required String? label,
-  required IconData? prefix,iconColor,
-  IconData? suffix,suffixColor,
+  required IconData? prefix,
+  iconColor,
+  IconData? suffix,
+  suffixColor,
   Function()? suffixPress,
 }) {
   return TextFormField(
@@ -33,13 +34,26 @@ Widget defaultTextField({
     validator: validate,
     decoration: InputDecoration(
       errorStyle: const TextStyle(color: Colors.red),
-      labelStyle: const TextStyle(color: Colors.black38),
+      labelStyle:  TextStyle(color: Get.isDarkMode?Colors.white:Colors.black),
+      floatingLabelStyle:const TextStyle(color: Colors.blueGrey) ,
       labelText: label,
-      prefixIcon: Icon(prefix,color: iconColor,),
+      prefixIcon: Icon(
+        prefix,
+        color: iconColor,
+      ),
       suffixIcon: suffix != null
-          ? IconButton(onPressed: suffixPress, icon: Icon(suffix,color: suffixColor,))
+          ? IconButton(
+              onPressed: suffixPress,
+              icon: Icon(
+                suffix,
+                color: suffixColor,
+              ))
           : null,
       border: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      focusedBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: mainColor),
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     ),
@@ -56,9 +70,7 @@ Widget defaultButton({
 }) =>
     Container(
       decoration: BoxDecoration(
-          color: background,
-          borderRadius: BorderRadius.circular(20)
-      ),
+          color: background, borderRadius: BorderRadius.circular(20)),
       width: width,
       // color: background,
       child: MaterialButton(
@@ -72,15 +84,20 @@ Widget defaultButton({
         ),
       ),
     );
-void snackBar({required title,required message, required Color? color,var time})=>{
-  Get.snackbar(
-      title,
-      message,
-  snackPosition: SnackPosition.BOTTOM,
-    colorText: Colors.white,
-    backgroundColor: color,
-    duration:  const Duration(seconds: 4)
 
-  ),
+void snackBar(
+        {required title, required message, required Color? color, var time}) =>
+    {
+      Get.snackbar(title, message,
+          snackPosition: SnackPosition.BOTTOM,
+          colorText: Colors.white,
+          backgroundColor: color,
+          duration: const Duration(seconds: 1)),
+    };
 
-};
+Widget divider() => Divider(
+      color: Colors.grey.shade400,
+      height: 5,
+      thickness: 0.3,
+      endIndent: 5,
+    );

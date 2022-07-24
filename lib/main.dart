@@ -1,16 +1,27 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:getx_test/constant/strings.dart';
 import 'package:getx_test/constant/theme.dart';
+import 'package:getx_test/logic/controller/main_controller.dart';
 import 'package:getx_test/routes/routes.dart';
-import 'package:getx_test/view/screens/auth_screens/login_screen.dart';
-import 'package:getx_test/view/screens/welcome_screen.dart';
+import 'language/localization.dart';
 
-void main() async{
+
+///welcome+animation+darkMode-->Done
+///LoginDarkMode=>Done
+///splashScreen==>Done
+///uploadGitHub
+
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,13 +33,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          color: mainColor,
-        ),
-        primarySwatch: Colors.blueGrey,
-      ),
-      initialRoute: AppRoute.welcome,
+      theme: ThemesApp.light,
+      locale: Locale(GetStorage().read<String>('language').toString()),
+      fallbackLocale: Locale(english),
+      translations: LocalizationApp(),
+      themeMode: MainController().themeDataGet,
+      darkTheme: ThemesApp.dark,
+      initialRoute: AppRoute.splash,
       getPages: AppRoute.routes,
     );
   }
