@@ -24,7 +24,7 @@ class MainScreen extends StatelessWidget {
           backgroundColor: context.theme.backgroundColor,
           appBar: AppBar(
             elevation: 0,
-            title: const Text('Matgary'),
+            title: const Text('Matgar'),
             leading: Container(),
             centerTitle: true,
             backgroundColor: Get.isDarkMode ? Colors.blueGrey : mainColor,
@@ -71,7 +71,7 @@ class MainScreen extends StatelessWidget {
               ),
               BottomNavyBarItem(
                 icon: const Icon(Icons.settings),
-                title: const Text('Settings'),
+                title:  Text('Settings'.tr),
                 activeColor: Colors.blue,
               ),
             ],

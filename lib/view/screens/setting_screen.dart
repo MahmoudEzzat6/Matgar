@@ -52,13 +52,11 @@ class _SettingScreenState extends State<SettingScreen> {
                   const SizedBox(
                     height: 5,
                   ),
-                  const Align(
-                      alignment: Alignment.topLeft,
-                      child: Text('Settings',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              color: mainColor,
-                              fontSize: 22))),
+                   Text('Settings'.tr,
+                       style: const TextStyle(
+                           fontWeight: FontWeight.w300,
+                           color: mainColor,
+                           fontSize: 22)),
                   SizedBox(
                     width: double.infinity,
                     height: 50,

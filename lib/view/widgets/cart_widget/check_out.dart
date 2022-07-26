@@ -11,6 +11,7 @@ class CheckOut extends StatelessWidget {
     var controller=Get.find<CartController>();
     return Obx((){
       return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

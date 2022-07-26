@@ -48,7 +48,7 @@ class _SearchScreenBarState extends State<SearchScreenBar> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  height: 50,
+                  height: 60,
                   width: 170,
                   child: TextFormField(
                     style: const TextStyle(color: Colors.black, fontSize: 16.0),

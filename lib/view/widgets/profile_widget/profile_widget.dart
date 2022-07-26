@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,12 +16,13 @@ class ProfileWidget extends StatelessWidget {
           Container(
             width: 150,
             height: 150,
-           
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(85),color:Colors.grey, ),
-            child: CachedNetworkImage(
-              imageUrl: controller.displayPhoto.value,
-              placeholder: (context, url) => const CircularProgressIndicator(),
-              errorWidget: (context, url, error) => const Icon(Icons.person,size: 70),
+            decoration: BoxDecoration(
+                color: Colors.grey,
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: NetworkImage(controller.displayPhoto.value),
+                    fit: BoxFit.cover,
+                ),
             ),
           ),
           const SizedBox(
@@ -30,17 +30,17 @@ class ProfileWidget extends StatelessWidget {
           ),
           Center(
               child: Text(
-            controller.displayName.value,
-            style: const TextStyle(fontSize: 19),
-          )),
+                controller.displayName.value,
+                style: const TextStyle(fontSize: 19),
+              )),
           const SizedBox(
             height: 3,
           ),
           Center(
               child: Text(
-            controller.displayEmail.value,
-            style: TextStyle(fontSize: 12),
-          )),
+                controller.displayEmail.value,
+                style: const TextStyle(fontSize: 12),
+              )),
         ],
       );
     });

@@ -44,7 +44,7 @@ class CartScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 520,
+                    height: 600,
                     child: ListView.separated(
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (BuildContext context, int index) {

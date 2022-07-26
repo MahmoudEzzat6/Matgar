@@ -1,7 +1,7 @@
 const Map<String ,String> ar={
   'Products':'المنتجات',
   'Dark Mode':'الوضع الداكن',
-  'Setting':'الاعدادات',
+  'Settings':'الاعدادات',
   'Language':'اللغه',
   'LogOut':'تسجيل الخروج',
   'Favourite':'المفضله',
